@@ -14,7 +14,7 @@ import pandas as pd
 def index(request):
     df = pd.DataFrame(columns=['type','title'])
 
-    f = open('koken/plan/Gekookt.txt', 'r+')
+    f = open('./Gekookt.txt', 'r+')
     for line in f.readlines():
         l, r = line[:3], line[4:].strip()
         regel = {'type':l,'title':r}
