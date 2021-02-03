@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.conf import settings
 
+import os
 
 import pandas as pd
-
 
 # In[76]:
 
@@ -14,7 +15,7 @@ import pandas as pd
 def index(request):
     df = pd.DataFrame(columns=['type','title'])
 
-    f = open(os.path.join(settings.BASE_DIR, 'Gekookt.txt'),'r+')
+    f = open(os.path.join(settings.BASE_DIR, 'plan/Gekookt.txt'),'r+')
     for line in f.readlines():
         l, r = line[:3], line[4:].strip()
         regel = {'type':l,'title':r}
